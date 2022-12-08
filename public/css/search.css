@@ -55,6 +55,7 @@ body{
     .header-right {
       float: none;
     }
+
   }
   table{
     margin-left: auto;
@@ -80,4 +81,5 @@ body{
   }
   .dalem{
     background-color: rgb(90, 87, 87);
+
   }
