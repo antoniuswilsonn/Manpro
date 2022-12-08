@@ -56,3 +56,42 @@ body{
       float: none;
     }
   }
+  .chart{
+    margin-top: 40px;
+    margin-left: 100px;
+    margin-right: 50px;
+  }
+  
+  .grafik{
+    margin-top: 10px;
+    margin-left: 820px;
+}
+
+.pindahdiagram{
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12pt;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 200px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(212, 212, 212);
+}
+
+.judul{
+  text-align: center;
+  color: white;
+}
+
+#filter{
+  color: black;
+}
+
+#pilihan{
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12pt;
+  padding:5px;
+  border-radius: 5px;
+  background-color: rgb(212, 212, 212);
+}
