@@ -3,6 +3,7 @@
   font-family: Poppins;
 }
 
+
 body{
   background-color: rgb(30, 30, 30);
 }
@@ -10,7 +11,10 @@ body{
 .header {
   overflow: hidden;
   background-color: #f1f1f1;
-  padding: 20px 10px;
+  padding: 20px 10px ;
+  position: sticky;
+  top: 0;
+  
 }
 
 .header a {
@@ -62,17 +66,20 @@ body{
     height:30%;
   }
 
-  h3{
-    color: white;
+  h2{
+    color: rgb(245, 245, 245);
+    font-weight: Medium;
     text-align: center;
     vertical-align: middle;
+    text-decoration: none;
   }
   
   p{
-    color:white;
+    color:rgb(232, 232, 232);
     text-align: center;
     padding-left: 30px;
     padding-right: 30px;
+    text-decoration: none;
   }
   tr td{
     width: 300px;
@@ -86,7 +93,12 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 6%;
+    padding-bottom: 100px;
   }
   .w3-card{
-    background-color: rgb(102, 96, 96);
+    background-color: rgb(90, 83, 83);
+  }
+
+  .w3-card:hover {
+    background-color: rgb(110, 103, 103);
   }
