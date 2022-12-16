@@ -4,8 +4,13 @@
 }
 
 body{
-    background-color: rgb(30, 30, 30);
+    background-image: url(/resources/wallpaperflare.com_wallpaper\ \(1\)\ copy.png);
+    background-color: rgb(52, 52, 52);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
 
 .header {
     overflow: hidden;
