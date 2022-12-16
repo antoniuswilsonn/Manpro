@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/graph.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <title>Graphic</title>
+</head>
+
+<body>
+  <div class="header">
+    <a href="./home.html" class="logo">Game of Thrones</a>
+    <div class="header-right">
+    <a href="./home.html">Home</a>
+      <a href="./page_search.html">Search</a>
+      <a class="active" href="./page_graph.html">Graphic</a>
+      <a href="./page_interaction.html">Interaction</a>
+    </div>
+  </div>
+
+
+  <div class="images">
+    <img class="gambar" src="/resources/Book1.jpg" width="200" height="350">
+    <img class="gambar" src="/resources/Book2.jpg" width="200" height="350">
+    <img class="gambar" src="/resources/Book3.jpg" width="200" height="350">
+    <img class="gambar" src="/resources/Book4.jpg" width="200" height="350">
+    <img class="gambar" src="/resources/Book5.jpg" width="200" height="350">
+  </div>
+
+  <div class = "button">
+    <button class="button-85" id="book1" role="button">Book 1</button>
+    <button class="button-85" role="button">Book 2</button>
+    <button class="button-85" role="button">Book 3</button>
+    <button class="button-85" role="button">Book 4</button>
+    <button class="button-85" role="button">Book 5</button>
+
+  </div>
+
+  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+
+</body>
+
+</html>
+
+
+<!-- HTML !-->
+
+
+<style>
+
+.images{
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+.gambar{
+  margin-left: 30px;
+}
+
+.button{
+  margin-left: 80px;
+}
+
+#book1{
+  margin-left: 100px;
+}
+
+.button-85 {
+  margin-top: 15px;
+  padding: 0.6em 2em;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-left: 118px;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #d4d4d4,
+    #c5c5c5,
+    #a7a7a7,
+    #a8a8a8,
+    #7f7f7f,
+    #979797,
+    #757575,
+    #545454,
+    #cdcdcd
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+
+</style>
