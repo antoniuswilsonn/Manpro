@@ -2,10 +2,16 @@ const config = {
     type: 'bar',
     data: data,
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
+      x: {
+        ticks: {
+          color: 'rgba(255,255,255, 0.9)'
         }
+      },
+      y: {
+        ticks: {
+          color: 'rgba(255,255,255, 0.9)'
+        },
+        beginAtZero: true
       }
     },
   };

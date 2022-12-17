@@ -69,17 +69,24 @@
         data: {
             labels: JSON.parse(document.getElementById('label').value),
             datasets: [{
-                label: document.getElementById('judul').value,
+                label: document.getElementById('judul').value ,
                 data: JSON.parse(document.getElementById('data').value),
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
-            }]
+                
+            }],
         },
         options: {
             scales: {
+                x: {
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
+                  borderWidth: 1
+                },
                 y: {
-                    beginAtZero: true
+                  color: 'rgba(255,255,255, 0.9)',
+                  beginAtZero: true
                 }
             }
         }

@@ -9,8 +9,6 @@
 
   <link rel="stylesheet" href="../css/graph.css">
 
-  <link rel="stylesheet" href="/public/css/graph.css">
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <title>Graphic</title>
 </head>
@@ -19,73 +17,195 @@
   <div class="header">
     <a href="/home" class="logo">Game of Thrones</a>
     <div class="header-right">
-    <a href="/home">Home</a>
+    <a href="./home">Home</a>
       <a href="/search">Search</a>
-      <a class="active" href="/graphic">Graphic</a>
+      <a class="active" href="./page_graph.html">Graphic</a>
       <a href="/interaction">Interaction</a>
     </div>
   </div>
 
-  <div class="judul">
-    <h1>
-        BAR CART TOP 10 book 5
-    </h1>
-</div>
-<div class="pindahdiagram">
-    <label for="grafik" id="filter">Filter:</label>
-    <select name="grafik" id="pilihan" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-        <option value="graphic-book5">book 5</option>
-        <option value="graphic">book 1</option>
-        <option value="graphic-book2">book 2</option>
-        <option value="graphic-book3">book 3</option>
-        <option value="graphic-book4">book 4</option>
-    </select>
-    <script>
-        $(function(){
-          // bind change event to select
-          $('#dynamic_select').on('change', function () {
-              var url = $(this).val(); // get selected value
-              if (url) { // require a URL
-                  window.location = url; // redirect
-              }
-              return false;
-          });
-        });
-    </script>
-</div>
 
-  <div class="chart">
+  <div class="images">
+    <img class="gambar" src="Book1.jpg" width="200" height="350">
+    <img class="gambar" src="Book2.jpg" width="200" height="350">
+    <img class="gambar" src="Book3.jpg" width="200" height="350">
+    <img class="gambar" src="Book4.jpg" width="200" height="350">
+    <img class="gambar" src="Book5.jpg" width="200" height="350">
+  </div>
+
+  <div class = "button">
+    <button class="button-85" role="button"><a href="/graphic" style="text-decoration: none">Book 1</a></button>
+    <button class="button-85" role="button"><a href="/graphic-book2" style="text-decoration: none">Book 2</a></button>
+    <button class="button-85" role="button"><a href="/graphic-book3" style="text-decoration: none">Book 3</a></button>
+    <button class="button-85" role="button"><a href="/graphic-book4" style="text-decoration: none">Book 4</a></button>
+    <button class="button-85" role="button"><a href="/graphic-book5" style="text-decoration: none">Book 5</a></button>
+
+  </div>
+
+  <div class="chartManpro">
     <input type="hidden" id="label" name="label" value="<%=label %>">
     <input type="hidden" id="data" name="data" value="<%=data %>">
     <input type="hidden" id="judul" name="judul" value="<%=judul %>">
-    <canvas id="myChart" width="400" height="150"></canvas>
-    <script src="js/chart.js"></script>
-    <script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
+      <div class="chartCard">
+        <div class="chartBox">
+          <canvas id="myChart" width="400" height="100"></canvas>
+        </div>
+      </div>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+      // setup 
+      const data = {
+        labels: JSON.parse(document.getElementById('label').value),
+        datasets: [{
+          label: document.getElementById('judul').value,
+          data: JSON.parse(document.getElementById('data').value),
+          backgroundColor:
+            'rgba(0, 0, 0, 0.2)',
+          borderColor: 
+            'rgba(0, 0, 0, 1)',
+          borderWidth: 1
+        }]
+      };
+
+      // config 
+      const config = {
         type: 'bar',
-        data: {
-            labels: JSON.parse(document.getElementById('label').value),
-            datasets: [{
-                label: document.getElementById('judul').value,
-                data: JSON.parse(document.getElementById('data').value),
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
+        data,
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+          scales: {
+            x: {
+            ticks: {
+              color: 'rgba(255,255,255, 0.9)'
             }
+          },
+            y: {
+              beginAtZero: true,
+              ticks: {
+              color: 'rgba(255,255,255, 0.9)'
+            }
+            }
+          }
         }
-    });
-    </script>
-</div>
+      };
+
+      // render init block
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+      </script>
+  </div>
 
 
 </body>
 
 </html>
+
+
+<!-- HTML !-->
+
+
+<style>
+
+body{
+    background-image: url(/resources/wallpaperflare.com_wallpaper\ copy.png);
+    background-color: rgb(52, 52, 52);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.images{
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+.gambar{
+  margin-left: 30px;
+}
+
+.button{
+  margin-left: 80px;
+}
+
+#book1{
+  margin-left: 100px;
+}
+
+.button-85 {
+  margin-top: 15px;
+  padding: 0.6em 2em;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-left: 118px;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #d4d4d4,
+    #c5c5c5,
+    #a7a7a7,
+    #a8a8a8,
+    #7f7f7f,
+    #979797,
+    #757575,
+    #545454,
+    #cdcdcd
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+
+</style>
