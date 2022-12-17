@@ -42,7 +42,73 @@
 
   </div>
 
-  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+  <div class="chartManpro">
+    <input type="hidden" id="label" name="label" value="<%=label %>">
+    <input type="hidden" id="data" name="data" value="<%=data %>">
+    <input type="hidden" id="judul" name="judul" value="<%=judul %>">
+      <div class="chartCard">
+        <div class="chartBox">
+          <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+      // setup 
+      const data = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Weekly Sales',
+          data: [18, 12, 6, 9, 12, 3, 9],
+          backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(0, 0, 0, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(0, 0, 0, 1)'
+          ],
+          borderWidth: 1
+        }]
+      };
+
+      // config 
+      const config = {
+        type: 'bar',
+        data,
+        options: {
+          scales: {
+            x: {
+            ticks: {
+              color: 'rgba(255,255,255, 0.9)'
+            }
+          },
+            y: {
+              beginAtZero: true,
+              ticks: {
+              color: 'rgba(255,255,255, 0.9)'
+            }
+            }
+          }
+        }
+      };
+
+      // render init block
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+      </script>
+  </div>
 
 
 </body>

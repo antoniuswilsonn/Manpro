@@ -52,7 +52,7 @@ app.get('/graphic', (request, response) => {
 				data.push(result[i].data);
 				label.push(result[i].label);
 			}
-    response.render('graph', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
+    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
   });	
 });
 
