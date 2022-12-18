@@ -31,7 +31,18 @@
         <p class="book"style="display: inline;color:white;">Book</p>
       </td>
       <td>
-        <input type="text" placeholder="Choose a book" style="width: 700px">
+        <div class="dropdown">
+          <nav>
+           <input id="toggle" type="checkbox" checked>
+          <h2>Choose a book</h2>
+        <ul>
+          <li><a href="/buku1"></a>Book 1: A Game of Thrones</a></li>
+          <li><a href="/buku2"></a>Book 2: A Clash of Kings</a></li>
+          <li><a href="/buku3"></a>Book 3: A Storm of Swords </a></li>
+          <li><a href="/buku4"></a>Book 4: A Feast for Crows</a></li>
+          <li><a href="/buku5"></a>Book 5: A Dance with Dragons</a></li>
+        </ul>
+     </nav>
       </td>
     </tr>
     <tr>
@@ -189,23 +200,126 @@ h2 {
   }
 }
 
-.dropdown {
+
+nav {
+  margin: auto;
+  position: relative;
+  width: clamp(320px, 50vw ,100%);
+}
+
+nav h2 {
+  padding-left: 5px;
+  font-size: 12pt;
+  border-radius: 2px;
+  position: relative;
+  background: rgb(186, 186, 186);
+  height: 30px;
+  margin-bottom: 0;
+  color: inherit;
+  font-weight: 200;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  box-shadow: 4px 4px 20px -2px rgba(0, 0, 0, 0.35);
+  transition: all 0.1s;
+}
+
+nav:hover h2 {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.35);
+  transistion: all 0.1s;
+}
+
+#toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  height: 30px;
+}
+
+h2::before{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: inherit;
+  aspect-ratio: 1;
+  background: currentColor;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  content: "";
+  clip-path: polygon(50% 25%, 20% 80%, 80% 80%);
+  transform: rotate(180deg) scale(0.75);
+}
+
+#toggle:not(:checked) ~ h2::before {
+  transform: rotate(0deg) scale(0.75);
+}
+
+#toggle:focus ~ h2{
+  background: rgb(147, 147, 147);
+  transition: background 0.1s;
+}
+
+#toggle:checked ~ ul {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#toggle:not(:checked) ~ ul {
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+}
+
+
+nav ul {
+  padding-left: 0;
+  padding-top: 1rem;
+  margin-top: 0;
+  background: #b6b6b6;
+  list-style: none;
+  overflow: hidden;
+  text-align: right;
+  text-align: center;
+  transition: all 0.4s ease-out;
+  width: 100%;
+  position: absolute;
+}
+nav ul li {
+  border-radius: 2px;
   position: relative;
   display: inline-block;
+  line-height: 1.5;
+  width: 100%;
+  margin: 0 0 0.25rem 0;
+  background: rgb(203, 203, 203);
+  transition: background 0.1s;
+  box-shadow: 2px 2px 10px -2px rgba(0, 0, 0, 0.35);
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
+nav ul li:hover,
+nav ul li a:focus {
+  background: rgb(172, 172, 172);
+  transition: background 0.1s;
 }
 
-.dropdown:hover .dropdown-content {
+nav ul a {
   display: block;
+  color: inherit;
+  text-transform: lowercase;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+
+.dropdown {
+  max-width: auto;
+  color: #3e3e3e;
+  margin-bottom: 10px;
 }
 
     
