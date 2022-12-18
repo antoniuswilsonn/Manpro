@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/search.css">
+
+  <!-- <link rel="stylesheet" href="/public/css/home.css"> -->
+
+  <title>Search</title>
+</head>
+
+<body>
+  <div class="header">
+    <a href="./home.html" class="logo">Game of Thrones</a>
+    <div class="header-right">
+      <a href="./home.html">Home</a>
+      <a class="active" href="./page_search.html">Search</a>
+      <a href="./page_graph.html">Graphic</a>
+      <a href="./page_interaction.html">Interaction</a>
+    </div>
+  </div>
+
+  <table class="bc">
+    <tr>
+      <td style="width: 30px;">
+        <p class="book"style="display: inline;color:white;">Book</p>
+      </td>
+      <td>
+        <input type="text" placeholder="Choose a book" style="width: 700px">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="char"style="display: inline;color:white;">Character</p>
+      </td>
+      <td>
+        <input type="text" placeholder="type your character" style="width: 700px">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right">
+        <button >SEARCH</button>
+      </td>
+    </tr>
+  </table>
+
+  <div class="container">
+    <h2>Character Interaction</h2>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-2">Character</div>
+        <div class="col col-3">Count</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">1</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">2</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">3</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">4</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">5</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">6</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">7</div>
+      </li>
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">8</div>
+      </li> 
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">9</div>
+      </li> 
+      <li class="table-row">
+        <div class="col col-2" data-label="Job Id">Daenerys Taegryn</div>
+        <div class="col col-3" data-label="Customer Name">10</div>
+      </li> 
+
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a class="active"href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">&raquo;</a>
+      </div>
+
+    </ul>
+
+  </div>
+
+</body>
+
+
+
+<style>
+body {
+  font-family: 'lato', sans-serif;
+}
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.responsive-table
+  li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .table-header {
+    background-color: #9bb7b8;
+    font-size: 14px;
+    font-weight: bold;
+    size: 18pt;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(186, 186, 186, 0.1);
+  }
+  .col-2 {
+    flex-basis: 40%;
+  }
+  .col-3 {
+    flex-basis: 25%;
+  }
+
+  @media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+   
+    li {
+      display: block;
+    }
+    .col {
+      flex-basis: 100%;
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+    
+  }
+
+  .pagination a {
+    margin-bottom: 15px;
+    color: rgb(255, 255, 255);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+
+  }
+  
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+}
+
+    
+</style>
+
+</html>
