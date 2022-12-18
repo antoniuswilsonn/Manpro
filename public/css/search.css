@@ -12,7 +12,6 @@ body{
 }
 
 
-
 .header {
     overflow: hidden;
     background-color: #f1f1f1;
@@ -96,8 +95,8 @@ body{
 
   }
   
-  .pagination a {
-    margin-top: 65px;
+  /* .pagination a {
+    margin-top: 5px;
     color: rgb(255, 255, 255);
     float: left;
     padding: 8px 16px;
@@ -111,4 +110,4 @@ body{
     color: white;
   }
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+  .pagination a:hover:not(.active) {background-color: #ddd;} */

@@ -113,9 +113,22 @@
 </body>
 
 <style>
-body {
-  font-family: 'lato', sans-serif;
-}
+  .pagination a {
+    color: rgb(255, 255, 255);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+
+  }
+  
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;
+  }
 .container {
   max-width: 1000px;
   margin-left: auto;
@@ -173,25 +186,26 @@ h2 {
     .col {
       display: flex;
       padding: 10px 0;
-    
   }
+}
 
-  .pagination a {
-    margin-top: 15px;
-    color: rgb(255, 255, 255);
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  }
-  
-  .pagination a.active {
-    background-color: dodgerblue;
-    color: white;
-  }
-  
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
     
