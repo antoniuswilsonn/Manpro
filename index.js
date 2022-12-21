@@ -129,7 +129,7 @@ app.get('/graphic', (request, response) => {
 				data.push(result[i].data);
 				label.push(result[i].label);
 			}
-    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
+    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data), book: "Book 1" });
   });	
 });
 
@@ -143,7 +143,7 @@ app.get('/graphic-book2', (request, response) => {
 				data.push(result[i].data);
 				label.push(result[i].label);
 			}
-    response.render('graph-book2', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
+    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data), book: "Book 2" });
   });	
 });
 
@@ -157,7 +157,7 @@ app.get('/graphic-book3', (request, response) => {
 				data.push(result[i].data);
 				label.push(result[i].label);
 			}
-    response.render('graph-book3', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
+    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data), book: "Book 3" });
   });	
 });
 
@@ -171,7 +171,7 @@ app.get('/graphic-book4', (request, response) => {
 				data.push(result[i].data);
 				label.push(result[i].label);
 			}
-    response.render('graph-book4', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
+    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data), book: "Book 4" });
   });	
 });
 
@@ -185,14 +185,204 @@ app.get('/graphic-book5', (request, response) => {
 				data.push(result[i].data);
 				label.push(result[i].label);
 			}
-    response.render('graph-book5', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data) });
+    response.render('graph-book1', { judul: 'quantity', label: JSON.stringify(label), data: JSON.stringify(data), book: "Book 5" });
   });	
 });
 
+
 app.get('/interaction', (request, response) => {
-	response.render('interaction');
+  let queryInter = 'SELECT sources, target, weight FROM got WHERE book = ? ORDER BY weight DESC LIMIT 10';
+  connection.query(queryInter, [1], (err, result, fields) => {
+    if(err) throw err;
+
+    let arr1PreNodes = [];
+    let arr1Nodes = [];
+    let arrNodes = [];
+
+    for(let i = 0; i < 20; i++){
+      if(i < 10){
+        arr1PreNodes.push(result[i].sources);
+      }
+      else if(i >= 10){
+        arr1PreNodes.push(result[i-10].target);
+      }
+    }
+
+    for(let value of arr1PreNodes){
+      if(arr1Nodes.indexOf(value) === -1){
+        arr1Nodes.push(value);
+      }
+    }
+
+    for (let i = 0; i < arr1Nodes.length; i++) {
+      arrNodes.push({id:arr1Nodes[i], label: arr1Nodes[i]});
+    }
+
+    let arrEdges = [];
+
+    for (let i = 0; i < 10; i++) {
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
+    }
+
+
+    response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 1"})
+  })
 });
 
+app.get('/interaction-book2', (request, response) => {
+  let queryInter = 'SELECT sources, target, weight FROM got WHERE book = ? ORDER BY weight DESC LIMIT 10';
+  connection.query(queryInter, [2], (err, result, fields) => {
+    if(err) throw err;
+
+    let arr1PreNodes = [];
+    let arr1Nodes = [];
+    let arrNodes = [];
+
+    for(let i = 0; i < 20; i++){
+      if(i < 10){
+        arr1PreNodes.push(result[i].sources);
+      }
+      else if(i >= 10){
+        arr1PreNodes.push(result[i-10].target);
+      }
+    }
+
+    for(let value of arr1PreNodes){
+      if(arr1Nodes.indexOf(value) === -1){
+        arr1Nodes.push(value);
+      }
+    }
+
+    for (let i = 0; i < arr1Nodes.length; i++) {
+      arrNodes.push({id:arr1Nodes[i], label: arr1Nodes[i]});
+    }
+
+    let arrEdges = [];
+
+    for (let i = 0; i < 10; i++) {
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
+    }
+
+
+    response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 2"})
+  })
+});
+
+app.get('/interaction-book3', (request, response) => {
+  let queryInter = 'SELECT sources, target, weight FROM got WHERE book = ? ORDER BY weight DESC LIMIT 10';
+  connection.query(queryInter, [3], (err, result, fields) => {
+    if(err) throw err;
+
+    let arr1PreNodes = [];
+    let arr1Nodes = [];
+    let arrNodes = [];
+
+    for(let i = 0; i < 20; i++){
+      if(i < 10){
+        arr1PreNodes.push(result[i].sources);
+      }
+      else if(i >= 10){
+        arr1PreNodes.push(result[i-10].target);
+      }
+    }
+
+    for(let value of arr1PreNodes){
+      if(arr1Nodes.indexOf(value) === -1){
+        arr1Nodes.push(value);
+      }
+    }
+
+    for (let i = 0; i < arr1Nodes.length; i++) {
+      arrNodes.push({id:arr1Nodes[i], label: arr1Nodes[i]});
+    }
+
+    let arrEdges = [];
+
+    for (let i = 0; i < 10; i++) {
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
+    }
+
+
+    response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 3"})
+  })
+});
+
+app.get('/interaction-book4', (request, response) => {
+  let queryInter = 'SELECT sources, target, weight FROM got WHERE book = ? ORDER BY weight DESC LIMIT 10';
+  connection.query(queryInter, [4], (err, result, fields) => {
+    if(err) throw err;
+
+    let arr1PreNodes = [];
+    let arr1Nodes = [];
+    let arrNodes = [];
+
+    for(let i = 0; i < 20; i++){
+      if(i < 10){
+        arr1PreNodes.push(result[i].sources);
+      }
+      else if(i >= 10){
+        arr1PreNodes.push(result[i-10].target);
+      }
+    }
+
+    for(let value of arr1PreNodes){
+      if(arr1Nodes.indexOf(value) === -1){
+        arr1Nodes.push(value);
+      }
+    }
+
+    for (let i = 0; i < arr1Nodes.length; i++) {
+      arrNodes.push({id:arr1Nodes[i], label: arr1Nodes[i]});
+    }
+
+    let arrEdges = [];
+
+    for (let i = 0; i < 10; i++) {
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
+    }
+
+
+    response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 4"})
+  })
+});
+
+app.get('/interaction-book5', (request, response) => {
+  let queryInter = 'SELECT sources, target, weight FROM got WHERE book = ? ORDER BY weight DESC LIMIT 10';
+  connection.query(queryInter, [5], (err, result, fields) => {
+    if(err) throw err;
+
+    let arr1PreNodes = [];
+    let arr1Nodes = [];
+    let arrNodes = [];
+
+    for(let i = 0; i < 20; i++){
+      if(i < 10){
+        arr1PreNodes.push(result[i].sources);
+      }
+      else if(i >= 10){
+        arr1PreNodes.push(result[i-10].target);
+      }
+    }
+
+    for(let value of arr1PreNodes){
+      if(arr1Nodes.indexOf(value) === -1){
+        arr1Nodes.push(value);
+      }
+    }
+
+    for (let i = 0; i < arr1Nodes.length; i++) {
+      arrNodes.push({id:arr1Nodes[i], label: arr1Nodes[i]});
+    }
+
+    let arrEdges = [];
+
+    for (let i = 0; i < 10; i++) {
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
+    }
+
+    response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 5"})
+  })
+});
 
 
 app.listen(8081);
