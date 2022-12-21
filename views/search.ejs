@@ -14,21 +14,21 @@
   <title>Search</title>
   </head>
 
-  <body>
-  <div class="header">
-  <a href="/home" class="logo">Game of Thrones</a>
-  <div class="header-right">
-  <a href="/home">Home</a>
-  <a class="active" href="/search">Search</a>
-  <a href="/graphic">Graphic</a>
-  <a href="/interaction">Interaction</a>
-  </div>
-  </div>
+  <body style="margin: 0;">
+    <div class="header">
+      <a href="/home" class="logo">Game of Thrones</a>
+      <div class="header-right">
+        <a href="/home">Home</a>
+        <a class="active" href="/search">Search</a>
+        <a href="/graphic">Graphic</a>
+        <a href="/interaction">Interaction</a>
+      </div>
+    </div>
 
   <form action="/search-process" method="post">
-    <table class="bc">
+    <table class="bc" style="margin-top: 3%;">
     <tr>
-      <td style="width: 30px;">
+      <td>
       <p class="book"style="display: inline;color:white;">Book</p>
       </td>
       <td>
@@ -61,7 +61,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2" align="right">
+        <td colspan="2" align="right" style="padding-top: 10px;">
           <input type="submit" value="SEARCH">
         </td>
       </tr>
@@ -116,7 +116,6 @@
     background-color: rgb(52, 52, 52);
     background-repeat: no-repeat;
     background-size: cover;
-    margin:0;
   }
 
   .pagination a {
@@ -127,7 +126,11 @@
   transition: background-color .3s;
 
   }
-
+  .table-row>tr>td{
+    padding-left: 13px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
   .pagination{
     display: flex;
     justify-content: center;
@@ -153,10 +156,11 @@
   } */
 
   h2 {
-  font-size: 26px;
   margin: 20px 0;
   text-align: center;
-  color: #ffffff;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 2px #000000;
+  font-size: 35px;
   }
 
   table {
@@ -232,7 +236,6 @@
 
 
   nav {
-  margin: auto;
   position: relative;
   width: clamp(320px, 50vw ,100%);
   }
