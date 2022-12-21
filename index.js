@@ -10,6 +10,8 @@ import formidable from 'formidable';
 import csv from 'fast-csv';
 import { request } from 'http';
 import { Console } from 'console';
+import { start } from 'repl';
+import { rejects } from 'assert';
 
 const app = express();
 
@@ -30,6 +32,7 @@ app.use(express.static('public'));
 app.use(express.static('resources'));
 app.use(express.static('views'));
 
+
 app.get('/home', (request, response) => {
 	response.render('home');
 });
@@ -38,9 +41,83 @@ app.get('/', (request, response) => {
 	response.render('home');
 });
 
+
+const show = 10;
+
+const getSearch = (start, limit, nama, book) => {
+  return new Promise((resolve, reject) => {
+    let querySearch = `SELECT target as 'target1', (SELECT COUNT(target) FROM got WHERE target = target1) as count FROM got WHERE sources LIKE '%${nama}%' AND book = ${book} GROUP BY target ORDER BY count DESC LIMIT ?,?`;
+    connection.query(querySearch, [start, limit], (err, result) => {
+      if(err) reject(err);
+      else{
+        resolve(result);
+      }
+    })
+  })
+}
+
+const getRowSearch = (nama, book) => {
+  return new Promise((resolve, reject) => {
+    let queryAllSearch = `SELECT COUNT('target1') as row FROM (SELECT target as 'target1', (SELECT COUNT(target) FROM got WHERE target = 'target1') as count FROM got WHERE sources LIKE '%${nama}%' AND book = ${book} GROUP BY target ORDER BY count DESC) as x;`
+    connection.query(queryAllSearch, (err, result) => {
+      if(err) reject(err);
+      else resolve(result);
+    })
+  })
+}
+
+let namaG;
+let bookG;
+
+
 app.get('/search', (request, response) => {
-  response.render('search');
+  response.render('search-awal')
 });
+
+
+app.post('/search-process', async (request, response) => {
+  let book = request.body.books;
+  let nama = request.body.character;
+
+  namaG = nama
+  bookG = book
+
+  console.log(namaG, bookG)
+
+  const jumlahRow = await getRowSearch(nama, book);
+  const pageCount = Math.ceil(jumlahRow[0].row/show);
+  console.log(jumlahRow[0].row)
+  
+  let query = `SELECT target as 'target1', (SELECT COUNT(target) FROM got WHERE target = target1) as count FROM got WHERE sources LIKE '%${nama}%' AND book = ${book} GROUP BY target ORDER BY count DESC LIMIT ?,?`;
+  connection.query(query, [0, show], (error, results, fields) => {
+    if(error) throw error;
+    response.render('search', { searchList: results, pageCount})
+  });
+});
+
+app.get('/search-process', async (request, response) => {
+  let book = bookG
+  let nama = namaG
+
+  console.log(nama, book)
+
+  const jumlahRow = await getRowSearch(nama, book);
+  const pageCount = Math.ceil(jumlahRow[0].row/show);
+  console.log(pageCount)
+
+  const start = request.query.start;
+  let searchlist;
+
+  if(start==undefined){
+    searchlist = await getSearch(0, show, nama, book);
+  }
+  else{
+    let limitStart = (show*(start-1));
+    searchlist = await getSearch(limitStart, show, nama, book);
+  }
+  
+  response.render('search', { searchList:searchlist, pageCount})
+})
 
 app.get('/graphic', (request, response) => {
   let querygraph = 'SELECT sources as label, COUNT(sources) as data FROM got WHERE book=1 GROUP BY sources ORDER BY COUNT(sources) DESC LIMIT 10'
