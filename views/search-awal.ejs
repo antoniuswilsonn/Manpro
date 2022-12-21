@@ -14,7 +14,7 @@
 <title>Search</title>
 </head>
 
-<body>
+<body style="margin: 0;">
     <div class="header">
         <a href="/home" class="logo">Game of Thrones</a>
         <div class="header-right">
@@ -26,32 +26,32 @@
     </div>
 
 <form action="/search-process" method="post">
-  <table class="bc">
-  <tr>
-    <td style="width: 30px;">
-    <p class="book"style="display: inline;color:white;">Book</p>
-    </td>
-    <td>
-      <div class="dropdown">
-          <nav>
-            <!-- <ul>
-              <li><a href="/buku1"></a>Book 1: A Game of Thrones</a></li>
-              <li><a href="/buku2"></a>Book 2: A Clash of Kings</a></li>
-              <li><a href="/buku3"></a>Book 3: A Storm of Swords </a></li>
-              <li><a href="/buku4"></a>Book 4: A Feast for Crows</a></li>
-              <li><a href="/buku5"></a>Book 5: A Dance with Dragons</a></li>
-            </ul> -->
-            <select name="books" id="books">
-              <option value="1">Book 1: A Game of Thrones</option>
-              <option value="2">Book 2: A Clash of Kings</option>
-              <option value="3">Book 3: A Storm of Swords</option>
-              <option value="4">Book 4: A Feast for Crows</option>
-              <option value="5">Book 5: A Dance with Dragons</option>
-            </select>
-          </nav>
-        </div>
-    </td>
-  </tr>
+  <table class="bc" style="margin-top: 3%;">
+    <tr>
+      <td>
+        <p class="book"style="display: inline;color:white;">Book</p>
+      </td>
+      <td>
+        <div class="dropdown">
+            <nav>
+              <!-- <ul>
+                <li><a href="/buku1"></a>Book 1: A Game of Thrones</a></li>
+                <li><a href="/buku2"></a>Book 2: A Clash of Kings</a></li>
+                <li><a href="/buku3"></a>Book 3: A Storm of Swords </a></li>
+                <li><a href="/buku4"></a>Book 4: A Feast for Crows</a></li>
+                <li><a href="/buku5"></a>Book 5: A Dance with Dragons</a></li>
+              </ul> -->
+              <select name="books" id="books">
+                <option value="1">Book 1: A Game of Thrones</option>
+                <option value="2">Book 2: A Clash of Kings</option>
+                <option value="3">Book 3: A Storm of Swords</option>
+                <option value="4">Book 4: A Feast for Crows</option>
+                <option value="5">Book 5: A Dance with Dragons</option>
+              </select>
+            </nav>
+          </div>
+      </td>
+    </tr>
     <tr>
       <td>
         <p class="char"style="display: inline;color:white;">Character</p>
@@ -61,7 +61,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2" align="right">
+      <td colspan="2" align="right" style="padding-top: 10px;">
         <input type="submit" value="SEARCH">
       </td>
     </tr>
@@ -71,6 +71,12 @@
 </body>
 
 <style>
+body{
+  background-image: url(/86540e55815231.5accc71e4891d\ copy.png);
+  background-color: rgb(52, 52, 52);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .pagination a {
 color: rgb(255, 255, 255);
 float: left;
@@ -157,7 +163,6 @@ flex-basis: 25%;
 
 
 nav {
-margin: auto;
 position: relative;
 width: clamp(320px, 50vw ,100%);
 }
