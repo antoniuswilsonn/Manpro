@@ -28,8 +28,29 @@
     <h2>TOP 10 Character Interaction <%=book %></h2>
   </div>
 
-
-  <div class="images">
+  <div class="gabungan">
+    <div class="newImage">
+      <img class="gambar" src="Book1.jpg" width="200" height="350">
+      <button class="button-85" role="button"><a href="/graphic" class="buku" style="text-decoration: none">Book 1</a></button>
+    </div>
+    <div class="newImage">
+      <img class="gambar" src="Book2.jpg" width="200" height="350">
+      <button class="button-85" role="button"><a href="/graphic-book2" class="buku" style="text-decoration: none">Book 2</a></button>
+    </div>
+    <div class="newImage">
+      <img class="gambar" src="Book3.jpg" width="200" height="350">
+      <button class="button-85" role="button"><a href="/graphic-book3" class="buku" style="text-decoration: none">Book 3</a></button>
+    </div>
+    <div class="newImage">
+      <img class="gambar" src="Book4.jpg" width="200" height="350">
+      <button class="button-85" role="button"><a href="/graphic-book4" class="buku" style="text-decoration: none">Book 4</a></button>
+    </div>
+    <div class="newImage">
+      <img class="gambar" src="Book5.jpg" width="200" height="350">
+      <button class="button-85" role="button"><a href="/graphic-book5" class="buku" style="text-decoration: none">Book 5</a></button>
+    </div>
+  </div>
+  <!-- <div class="images">
     <img class="gambar" src="Book1.jpg" width="200" height="350">
     <img class="gambar" src="Book2.jpg" width="200" height="350">
     <img class="gambar" src="Book3.jpg" width="200" height="350">
@@ -44,7 +65,7 @@
     <button class="button-85" role="button"><a href="/graphic-book4" style="text-decoration: none">Book 4</a></button>
     <button class="button-85" role="button"><a href="/graphic-book5" style="text-decoration: none">Book 5</a></button>
 
-  </div>
+  </div> -->
 
   <div class="chartManpro">
     <input type="hidden" id="label" name="label" value="<%=label %>">
@@ -114,27 +135,41 @@ body{
     background-color: rgb(52, 52, 52);
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom:4%;
 }
 
 .images{
   margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 85%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-.gambar{
-  margin-left: 30px;
+/* .gambar{ */
+  /* margin-left: 30px; */
+/* } */
+
+/* .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+
+} */
+.gabungan{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 2%;
+}
+.newImage{
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.button{
-  margin-left: 80px;
-}
-
-#book1{
-  margin-left: 100px;
-}
+/* #book1{ */
+  /* margin-left: 100px; */
+/* } */
 
 div h2{
   text-align: center;
@@ -146,7 +181,7 @@ div h2{
   padding: 0.6em 2em;
   padding-left: 35px;
   padding-right: 35px;
-  margin-left: 118px;
+  /* margin-left: 118px; */
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
@@ -158,8 +193,27 @@ div h2{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  
+}
+/* unvisited link */
+.buku:link {
+  color: white;
 }
 
+/* visited link */
+.buku:visited {
+  color: white;
+}
+
+/* mouse over link */
+.buku:hover {
+  color: rgb(255, 252, 66);
+}
+
+/* selected link */
+.buku:active {
+  color: white;
+}
 .button-85:before {
   content: "";
   background: linear-gradient(
@@ -212,7 +266,7 @@ div h2{
   border-radius: 10px;
 }
 
+.chartManpro{
+  margin-top: 4%;
+}
 
-
-
-</style>
