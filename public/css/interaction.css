@@ -3,12 +3,7 @@
     font-family: Poppins;
 }
 
-body{
-    background-image: url(/resources/86540e55815231.5accc71e4891d\ copy.png);
-    background-color: rgb(52, 52, 52);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .header {
     overflow: hidden;
