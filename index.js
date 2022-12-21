@@ -221,11 +221,9 @@ app.get('/interaction', (request, response) => {
     let arrEdges = [];
 
     for (let i = 0; i < 10; i++) {
-      arrEdges.push({from:result[i].sources, to:result[i].target});
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
     }
 
-    console.log(arrNodes);
-    console.log(arrEdges);
 
     response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 1"})
   })
@@ -262,11 +260,9 @@ app.get('/interaction-book2', (request, response) => {
     let arrEdges = [];
 
     for (let i = 0; i < 10; i++) {
-      arrEdges.push({from:result[i].sources, to:result[i].target});
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
     }
 
-    console.log(arrNodes);
-    console.log(arrEdges);
 
     response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 2"})
   })
@@ -303,11 +299,9 @@ app.get('/interaction-book3', (request, response) => {
     let arrEdges = [];
 
     for (let i = 0; i < 10; i++) {
-      arrEdges.push({from:result[i].sources, to:result[i].target});
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
     }
 
-    console.log(arrNodes);
-    console.log(arrEdges);
 
     response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 3"})
   })
@@ -344,11 +338,9 @@ app.get('/interaction-book4', (request, response) => {
     let arrEdges = [];
 
     for (let i = 0; i < 10; i++) {
-      arrEdges.push({from:result[i].sources, to:result[i].target});
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
     }
 
-    console.log(arrNodes);
-    console.log(arrEdges);
 
     response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 4"})
   })
@@ -385,11 +377,8 @@ app.get('/interaction-book5', (request, response) => {
     let arrEdges = [];
 
     for (let i = 0; i < 10; i++) {
-      arrEdges.push({from:result[i].sources, to:result[i].target});
+      arrEdges.push({from:result[i].sources, to:result[i].target, label:result[i].weight, font: { align: "middle" }});
     }
-
-    console.log(arrNodes);
-    console.log(arrEdges);
 
     response.render('interaction', { nodes: JSON.stringify(arrNodes), edges: JSON.stringify(arrEdges), selectedbook: "INTERACTION BOOK 5"})
   })

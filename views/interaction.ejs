@@ -44,31 +44,32 @@
 
   <h2><%=selectedbook%></h2>
 
-  <div class = "button">
-    <button class="button-85" role="button"><a href="/interaction" style="text-decoration: none">Book 1</a></button>
-    <button class="button-85" role="button"><a href="/interaction-book2" style="text-decoration: none">Book 2</a></button>
-    <button class="button-85" role="button"><a href="/interaction-book3" style="text-decoration: none">Book 3</a></button>
-    <button class="button-85" role="button"><a href="/interaction-book4" style="text-decoration: none">Book 4</a></button>
-    <button class="button-85" role="button"><a href="/interaction-book5" style="text-decoration: none">Book 5</a></button>
+  <div class="container">
+      <div class = "button">
+        <button class="button-85" role="button"><a href="/interaction" style="text-decoration: none">Book 1</a></button>
+        <button class="button-85" role="button"><a href="/interaction-book2" style="text-decoration: none">Book 2</a></button>
+        <button class="button-85" role="button"><a href="/interaction-book3" style="text-decoration: none">Book 3</a></button>
+        <button class="button-85" role="button"><a href="/interaction-book4" style="text-decoration: none">Book 4</a></button>
+        <button class="button-85" role="button"><a href="/interaction-book5" style="text-decoration: none">Book 5</a></button>
 
+      </div>
+
+      <div id="mynetwork"></div>
+
+        <script type="text/javascript">
+          const nodes = JSON.parse(document.getElementById('nodes').value);
+          const edges = JSON.parse(document.getElementById('edges').value);
+
+          // create a network
+          var container = document.getElementById("mynetwork");
+          var data = {
+            nodes: nodes,
+            edges: edges,
+          };
+          var options = {};
+          var network = new vis.Network(container, data, options);
+        </script>
   </div>
-
-  <div id="mynetwork"></div>
-
-    <script type="text/javascript">
-      const nodes = JSON.parse(document.getElementById('nodes').value);
-      const edges = JSON.parse(document.getElementById('edges').value);
-
-      // create a network
-      var container = document.getElementById("mynetwork");
-      var data = {
-        nodes: nodes,
-        edges: edges,
-      };
-      var options = {};
-      var network = new vis.Network(container, data, options);
-    </script>
-
 </body>
 
 </html>
