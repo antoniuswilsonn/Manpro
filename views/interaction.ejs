@@ -46,11 +46,11 @@
 
   <div class="container">
       <div class = "button">
-        <button class="button-85" role="button"><a href="/interaction" style="text-decoration: none">Book 1</a></button>
-        <button class="button-85" role="button"><a href="/interaction-book2" style="text-decoration: none">Book 2</a></button>
-        <button class="button-85" role="button"><a href="/interaction-book3" style="text-decoration: none">Book 3</a></button>
-        <button class="button-85" role="button"><a href="/interaction-book4" style="text-decoration: none">Book 4</a></button>
-        <button class="button-85" role="button"><a href="/interaction-book5" style="text-decoration: none">Book 5</a></button>
+        <button class="button-85" role="button"><a class="buku" href="/interaction" style="text-decoration: none">Book 1</a></button>
+        <button class="button-85" role="button"><a class="buku" href="/interaction-book2" style="text-decoration: none">Book 2</a></button>
+        <button class="button-85" role="button"><a class="buku" href="/interaction-book3" style="text-decoration: none">Book 3</a></button>
+        <button class="button-85" role="button"><a class="buku" href="/interaction-book4" style="text-decoration: none">Book 4</a></button>
+        <button class="button-85" role="button"><a class="buku" href="/interaction-book5" style="text-decoration: none">Book 5</a></button>
 
       </div>
 
@@ -79,10 +79,112 @@ body{
     background-color: rgb(52, 52, 52);
     background-repeat: no-repeat;
     background-size: cover;
+    margin:0;
 }
 
 #mynetwork{
   background-color: rgba(47, 47, 47, 0.7);
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.button{
+  margin-bottom: 2%;
+  display: flex;
+  gap: 20px;
+}
+.button-85 {
+  margin-top: 15px;
+  padding: 0.6em 2em;
+  padding-left: 35px;
+  padding-right: 35px;
+  /* margin-left: 118px; */
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+/* unvisited link */
+.buku:link {
+  color: white;
+}
+
+/* visited link */
+.buku:visited {
+  color: white;
+}
+
+/* mouse over link */
+.buku:hover {
+  color: rgb(66, 226, 231);
+}
+
+/* selected link */
+.buku:active {
+  color: white;
+}
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #d4d4d4,
+    #c5c5c5,
+    #a7a7a7,
+    #a8a8a8,
+    #7f7f7f,
+    #979797,
+    #757575,
+    #545454,
+    #cdcdcd
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 </style>
 
